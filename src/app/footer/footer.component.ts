@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
 
-  constructor() { }
-
   author: any = {nombre: 'Nicolás E.', apellido: 'Rozo E.'};
+
+  constructor() { }
 
 }

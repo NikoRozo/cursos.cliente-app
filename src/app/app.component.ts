@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Modulo de Facturación';
+  title = 'Bienvenidos a NikoRz.Dev';
 
-  version = 'Angular 10; Spring 5';
+  version = 'Angular 10, Spring Boot y Docker';
   author = 'Nicolás E. Rozo E.';
 }
