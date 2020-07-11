@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'cliente-app';
+  title = 'Modulo de Facturación';
+
+  version = 'Angular 10';
+  author = 'Nicolás E. Rozo E.';
 }
