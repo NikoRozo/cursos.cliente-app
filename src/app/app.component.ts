@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Modulo de Facturación';
 
-  version = 'Angular 10';
+  version = 'Angular 10; Spring 5';
   author = 'Nicolás E. Rozo E.';
 }
