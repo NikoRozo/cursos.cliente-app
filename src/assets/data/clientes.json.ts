@@ -12,4 +12,4 @@ export const Clientes: Cliente[] = [
     {id: 9, nombre: 'David', apellido: 'Beltran', createAt: '2019-07-11', email: 'correo@email.com'},
     {id: 10, nombre: 'Sara', apellido: 'Leo', createAt: '2019-07-11', email: 'correo@email.com'},
     {id: 11, nombre: 'Yeimy', apellido: 'Espinosa', createAt: '2019-07-11', email: 'correo@email.com'}
-  ]
+  ];
