@@ -8,7 +8,11 @@ import { Component } from '@angular/core';
 export class DirectivaComponent {
 
   listCursos: string[] = ['typeScrip', 'Javascript', 'Java SE', 'C#', 'AWS'];
+  enable = true;
 
   constructor() { }
 
+  setEnable(): void {
+    this.enable = (this.enable === true) ? false : true;
+  }
 }
