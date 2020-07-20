@@ -18,29 +18,47 @@ export class ClienteService {
               private router: Router) { }
 
   getClientes(): Observable<Cliente[]> {
-    return this.http.get<Cliente[]>(this.urlEndPoint).pipe(
+    return this.http.get<Cliente[]>(this.urlEndPoint);
+  }
+
+  getCliente(id: number): Observable<Cliente> {
+    return this.http.get<Cliente>(`${this.urlEndPoint}/${id}`).pipe(
       catchError(e => {
-        this.router.navigate(['/cliente']);
+        this.router.navigate(['/clientes']);
         console.error(e.error.mensaje);
-        swal.fire('Error al Editar', e.error.mensaje, 'error');
+        swal.fire('Error al Editar el cliente', e.error.mensaje, 'error');
         return throwError(e);
       })
     );
   }
 
   create(cliente: Cliente): Observable<Cliente> {
-    return this.http.post<Cliente>(this.urlEndPoint, cliente, {headers: this.httpHeaders});
-  }
-
-  getCliente(id: number): Observable<Cliente> {
-    return this.http.get<Cliente>(`${this.urlEndPoint}/${id}`);
+    return this.http.post<Cliente>(this.urlEndPoint, cliente, {headers: this.httpHeaders}).pipe(
+      catchError(e => {
+        console.error(e.error.mensaje);
+        swal.fire('Error al crear el cliente', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
   }
 
   update(cliente: Cliente): Observable<Cliente> {
-    return this.http.put<Cliente>(`${this.urlEndPoint}/${cliente.id}`, cliente, {headers: this.httpHeaders});
+    return this.http.put<Cliente>(`${this.urlEndPoint}/${cliente.id}`, cliente, {headers: this.httpHeaders}).pipe(
+      catchError(e => {
+        console.error(e.error.mensaje);
+        swal.fire('Error al Editar el cliente', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
   }
 
   delete(id: number): Observable<Cliente> {
-    return this.http.delete<Cliente>(`${this.urlEndPoint}/${id}`, {headers: this.httpHeaders});
+    return this.http.delete<Cliente>(`${this.urlEndPoint}/${id}`, {headers: this.httpHeaders}).pipe(
+      catchError(e => {
+        console.error(e.error.mensaje);
+        swal.fire('Error al eliminar el cliente', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
   }
 }
