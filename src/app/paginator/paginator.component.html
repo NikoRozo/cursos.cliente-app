@@ -7,7 +7,7 @@
         <a class="page-link" [routerLink]="['/clientes/page', paginador.number - 1]">&laquo;</a>
     </li>
 
-    <li class="page-item" *ngFor="let page of pages" [ngClass]="page-1 === paginador.number?'disabled':''">
+    <li class="page-item" *ngFor="let page of pages" [ngClass]="page-1 === paginador.number?'active':''">
         <span class="page-link" *ngIf="page-1 === paginador.number">{{ page }}</span>
         <a class="page-link" *ngIf="page-1 !== paginador.number" [routerLink]="['/clientes/page', page-1]">{{ page }}</a>
     </li>
