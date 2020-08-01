@@ -49,6 +49,20 @@
                 </div>
             </div>
 
+            <div class="from-group row">
+                <label for="create At" class="col-form-label col-sm-2">Fecha</label>
+                <div class="col-sm-6">
+                    <input matInput [matDatepicker]="picker" class="form-control" [(ngModel)]="cliente.createAt" name="createAt" required #createAt="ngModel" style="display:inline; width:25rem;">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <div class="alert alert-danger" *ngIf="createAt.invalid && (createAt.dirty || createAt.touched)">
+                        <div *ngIf="createAt.errors.required">
+                            Fecha es requerido
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="form-group row">
                 <div class="col-sm-6">
                     <button class="btn btn-primary" role="button" (click)='create()' *ngIf="!cliente.id else elseBlock" [disabled]="!clienteForm.form.valid">Crear</button>
