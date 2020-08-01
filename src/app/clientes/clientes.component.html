@@ -1,3 +1,4 @@
+<app-datail-client *ngIf="clienteSelect" [cliente]="clienteSelect"></app-datail-client>
 <div class="card border-primary mb-3" >
     <div class="card-header">Clientes</div>
     <div class="card-body text-primary">
@@ -14,7 +15,7 @@
       <table class="table table-bordered table-striped text-primary" *ngIf="clientes?.length > 0">
         <thead>
             <tr>
-                <td>Id</td>
+                <td>Perfil</td>
                 <td>Nombre</td>
                 <td>Apellido</td>
                 <td>Email</td>
@@ -25,7 +26,12 @@
         </thead>
         <tbody>
             <tr *ngFor="let cliente of clientes">
-                <td> <button class="btn btn-success btn-sm" type="button" name="ver" [routerLink]="['/clientes/ver/', cliente.id]" > {{ cliente.id }} </button></td>
+                <td> 
+                    <img (click)="selectClient(cliente)" *ngIf="cliente?.foto" src="http://localhost:8090/api/v1/clients/uploads/img/{{cliente.foto}}" alt="{{cliente.foto}}" class="img-thumbnail rounded"
+                    style="width: 4rem; cursor: pointer;">
+                    <img (click)="selectClient(cliente)" *ngIf="!cliente?.foto" src="../../assets/user.svg" alt="sin foto" class="img-thumbnail rounded"
+                    style="width: 4rem; cursor: pointer;">
+                </td>
                 <td>{{ cliente.nombre }}</td>
                 <td>{{ cliente.apellido }}</td>
                 <td>{{ cliente.email }}</td>
